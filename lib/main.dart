@@ -1,39 +1,34 @@
 import 'package:flutter/material.dart';
 
-// BMI Screens
-import 'screens/bmi/bmi_input_screen.dart';
-import 'screens/bmi/bmi_result_screen.dart';
+import 'screens/register/register_screen.dart';
+import 'screens/otp/otp_screen.dart';
+import 'screens/login/login_screen.dart';
+import 'screens/meal_detail/meal_detail_screen.dart'; // 👈 ADD THIS
+import 'screens/craving/craving_screen.dart';
 
-// Reminder Screen
-import 'screens/reminder/reminder_screen.dart';
 
-// Favourite Screen
-import 'screens/favourite/favourite_screen.dart';
-
-// Notification Screen
-import 'screens/notification/notification_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NutriGuideApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NutriGuideApp extends StatelessWidget {
+  const NutriGuideApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      // App starts from BMI screen
-      initialRoute: '/bmi',
+      // Start from Register
+      initialRoute: '/meal_detail',
 
       routes: {
-        '/bmi': (context) => BMIInputScreen(),
-        '/bmi-result': (context) => BMIResultScreen(),
-        '/reminder': (context) => ReminderScreen(),
-        '/favourite': (context) => FavouriteScreen(),
-        '/notification': (context) => NotificationScreen(),
+        '/register': (context) => const RegisterScreen(),
+        '/otp': (context) => const OtpScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/meal_detail': (context) => const MealDetailScreen(), // 👈 ADD THIS
+        '/craving': (context) => const CravingScreen(),
       },
     );
   }
